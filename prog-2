@@ -1,0 +1,444 @@
+package com.example.cal;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import java.util.regex.Pattern;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import java.util.regex.Pattern;
+    public class MainActivity extends AppCompatActivity implements
+            View.OnClickListener {
+        Button btnOne, btnTwo, btnThree, btnFour, btnFive, btnSix;
+        Button btnSeven, btnEight, btnNine, btnZero;
+        Button btnAdd, btnSub, btnMul, btnDiv;
+        Button btnClear, btnEqual, btnDot;
+        EditText txtResult;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            btnOne = (Button) findViewById(R.id.button21);
+            btnOne.setOnClickListener(this);
+            btnTwo = (Button) findViewById(R.id.button22);
+            btnTwo.setOnClickListener(this);
+            btnThree = (Button) findViewById(R.id.button23);
+            btnThree.setOnClickListener(this);
+            btnFour = (Button) findViewById(R.id.button17);
+            btnFour.setOnClickListener(this);
+            btnFive = (Button) findViewById(R.id.button18);
+            btnFive.setOnClickListener(this);
+            btnSix = (Button) findViewById(R.id.button19);
+            btnSix.setOnClickListener(this);
+            btnSeven = (Button) findViewById(R.id.button14);
+            btnSeven.setOnClickListener(this);
+            btnEight = (Button) findViewById(R.id.button13);
+            btnEight.setOnClickListener(this);
+            btnNine = (Button) findViewById(R.id.button15);
+            btnNine.setOnClickListener(this);
+            btnZero = (Button) findViewById(R.id.button27);
+            btnZero.setOnClickListener(this);
+            btnAdd = (Button) findViewById(R.id.button29);
+            btnAdd.setOnClickListener(this);
+            btnSub = (Button) findViewById(R.id.button24);
+            btnSub.setOnClickListener(this);
+            btnMul = (Button) findViewById(R.id.button20);
+            btnMul.setOnClickListener(this);
+            btnDiv = (Button) findViewById(R.id.button16);
+            btnDiv.setOnClickListener(this);
+            btnClear = (Button) findViewById(R.id.button30);
+            btnClear.setOnClickListener(this);
+            btnEqual = (Button) findViewById(R.id.button28);
+            btnEqual.setOnClickListener(this);
+            btnDot = (Button) findViewById(R.id.button25);
+            btnDot.setOnClickListener(this);
+            txtResult = (EditText) findViewById(R.id.editTextTextPersonName);
+            txtResult.setText("");
+        }
+        @Override
+        public void onClick(View v)
+        {
+            if (v.equals(btnOne))
+                txtResult.append("1");
+            if (v.equals(btnTwo))
+                txtResult.append("2");
+            if (v.equals(btnThree))
+                txtResult.append("3");
+            if (v.equals(btnFour))
+                txtResult.append("4");
+            if (v.equals(btnFive))
+                txtResult.append("5");
+            if (v.equals(btnSix))
+                txtResult.append("6");
+            if (v.equals(btnSeven))
+                txtResult.append("7");
+            if (v.equals(btnEight))
+                txtResult.append("8");
+            if (v.equals(btnNine))
+                txtResult.append("9");
+            if (v.equals(btnZero))
+                txtResult.append("0");
+            if (v.equals(btnDot))
+                txtResult.append(".");
+            if (v.equals(btnClear))
+                txtResult.setText("");
+            if (v.equals(btnAdd))
+                txtResult.append("+");
+            if (v.equals(btnSub))
+                txtResult.append("-");
+            if (v.equals(btnMul))
+                txtResult.append("*");
+            if (v.equals(btnDiv))
+                txtResult.append("/");
+            if (v.equals(btnEqual))
+            {
+                try {
+                    String data = txtResult.getText().toString();
+                    if (data.contains("/")) {
+                        String[] operands = data.split("/");
+                        if (operands.length == 2) {
+                            double operand1 = Double.parseDouble(operands[0]);
+                            double operand2 = Double.parseDouble(operands[1]);
+                            double result = operand1 / operand2;
+                            txtResult.setText(String.valueOf(result));
+                        } else {
+                            Toast.makeText(getBaseContext(), "Invalid Input",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    } else if (data.contains("*")) {
+                        String[] operands = data.split(Pattern.quote("*"));
+                        if (operands.length == 2) {
+                            double operand1 = Double.parseDouble(operands[0]);
+                            double operand2 = Double.parseDouble(operands[1]);
+                            double result = operand1 * operand2;
+                            txtResult.setText(String.valueOf(result));
+                        } else {
+                            Toast.makeText(getBaseContext(), "Invalid Input",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    } else if (data.contains("+"))
+                    {
+                        String[] operands = data.split(Pattern.quote("+"));
+                        if (operands.length == 2) {
+                            double operand1 = Double.parseDouble(operands[0]);
+                            double operand2 = Double.parseDouble(operands[1]);
+                            double result = operand1 + operand2;
+                            txtResult.setText(String.valueOf(result));
+                        }
+                        else {
+                            Toast.makeText(getBaseContext(), "Invalid Input",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                    else if (data.contains("-"))
+                    {
+                        String[] operands = data.split("-");
+                        if (operands.length == 2) {
+                            double operand1 = Double.parseDouble(operands[0]);
+                            double operand2 = Double.parseDouble(operands[1]);
+                            double result = operand1 - operand2;
+                            txtResult.setText(String.valueOf(result));
+                        }
+                        else
+                        {
+                            Toast.makeText(getBaseContext(), "Invalid Input",
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Toast.makeText(getBaseContext(), "Invalid Input",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }
+    }
+    
+    xml
+    
+    <?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button28"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="="
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/button29"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="+"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/button27"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/button25"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="."
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.745" />
+
+    <Button
+        android:id="@+id/button13"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="8"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/button15"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="9"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/button14"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="7"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="/"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="6"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/button20"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="*"
+        android:textSize="24sp"
+        app:iconTint="#CC0808"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="4"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/button18"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="5"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.429" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="3"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="-"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="2"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="1"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.572" />
+
+    <Button
+        android:id="@+id/button30"
+        android:layout_width="52dp"
+        android:layout_height="72dp"
+        android:text="C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.904" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIMPLE CALCULATOR"
+        android:textColor="#DC0808"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="RESULT"
+        android:textColor="#CC1818"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="373dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="result"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.179" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,16 +13,14 @@
         android:layout_width="235dp"
         android:layout_height="55dp"
         android:ems="10"
+        android:hint="ds"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325"
-        tools:ignore="TextFields"
-        android:hint="@string/whatever_text_you_want"
-        android:autofillHints="whatever text you want" />
+        app:layout_constraintVertical_bias="0.325" />
 
     <TextView
         android:id="@+id/textView"
@@ -74,9 +72,9 @@
     <EditText
         android:id="@+id/txt_username"
         android:layout_width="218dp"
+        android:hint="wrr"
         android:layout_height="48dp"
         android:ems="10"
-        android:hint="@string/whatever_text_you_want"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,9 +94,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-//java sign
+// java sign
 
-package com.example.signupandloginin;
+package com.example.signup;
+
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -113,9 +113,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-EditText Signup_Username, Signup_Password;
-Button btnSignup;
-String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@$!]{8,}$";
+    EditText Signup_Username, Signup_Password;
+    Button btnSignup;
+    String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@$!]{8,}$";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +153,7 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
     }
 }
 
+
 //xml login
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -166,25 +167,21 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
     <EditText
         android:id="@+id/login_password"
         android:layout_width="211dp"
-        android:layout_height="48dp"
-        android:autofillHints="whatever text you want"
+        android:layout_height="37dp"
         android:ems="10"
-        android:hint="@string/whatever_text_you_want"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.89"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325"
-        tools:ignore="TextFields" />
+        app:layout_constraintVertical_bias="0.325" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login_activity"
+        android:text="Login Activity"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#E91E63"
@@ -195,14 +192,13 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
         app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.067"
-        tools:ignore="HardcodedText" />
+        app:layout_constraintVertical_bias="0.067" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/username"
+        android:text="Username"
         android:textAlignment="center"
         android:textColor="#9C27B0"
         android:textSize="24sp"
@@ -217,7 +213,7 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password"
+        android:text="Password"
         android:textAlignment="center"
         android:textColor="#9C27B0"
         android:textSize="24sp"
@@ -231,10 +227,8 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
     <EditText
         android:id="@+id/login_username"
         android:layout_width="218dp"
-        android:layout_height="48dp"
-        android:autofillHints="what ever text you want"
+        android:layout_height="39dp"
         android:ems="10"
-        android:hint="@string/whatever_text_you_want"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -247,7 +241,7 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
         android:id="@+id/btn_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -256,7 +250,8 @@ String regularExpression="^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!])[A-Za-z\\d@
 
 //java login
 
-package com.example.signupandloginin;
+package com.example.signup;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -270,40 +265,35 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     EditText LoginUsername, LoginPassword;
     Button btnLogin;
     String user, pass;
-    int count=0;
+    int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        LoginUsername=(EditText)findViewById(R.id.login_username);
-        LoginPassword=(EditText)findViewById(R.id.login_password);
-        btnLogin=(Button)findViewById(R.id.btn_login);
+        LoginUsername = (EditText) findViewById(R.id.login_username);
+        LoginPassword = (EditText) findViewById(R.id.login_password);
+        btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(this);
-        Bundle bundle=getIntent().getBundleExtra("data");
-        user=bundle.getString("User");
-        pass=bundle.getString("Pwd");
+        Bundle bundle = getIntent().getBundleExtra("data");
+        user = bundle.getString("User");
+        pass = bundle.getString("Pwd");
     }
 
     @Override
     public void onClick(View v) {
-        String user1=LoginUsername.getText().toString();
-        String pass1=LoginPassword.getText().toString();
-        if(user.equals(user1)&& pass.equals(pass1))
-        {
-            Toast.makeText(this,"Login Successful",Toast.LENGTH_LONG).show();
+        String user1 = LoginUsername.getText().toString();
+        String pass1 = LoginPassword.getText().toString();
+        if (user.equals(user1) && pass.equals(pass1)) {
+            Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show();
 
-        }
-        else
-        {
+        } else {
             count++;
-            if(count==3){
+            if (count == 3) {
                 btnLogin.setEnabled(false);
-                Toast.makeText(this,"Failed Login Attempts",Toast.LENGTH_LONG).show();
-            }
-            else
-            {
-                Toast.makeText(this,"Login Failed" +count,Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Failed Login Attempts", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Login Failed" + count, Toast.LENGTH_LONG).show();
             }
         }
 
